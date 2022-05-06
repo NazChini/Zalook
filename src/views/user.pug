@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1 #{user.firstName} (#{user.lastName})
+  p Bio: #{user.bio}
+  if user.products.length == 0
+    p no favourite products yet!
+  else 
+    p #{user.products.map(product => product.name).join(', ')}
+  if user.looks.length == 0
+    p no looks created yet! 
+  else 
+    p #{user.looks.map(look => look.name).join(', ')}
