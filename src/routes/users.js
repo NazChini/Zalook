@@ -18,6 +18,11 @@ router.get('/', async (req, res) => {
 })
 
 router.get('/initialize', async (req, res) => {
+  //temporary delete for development
+  await User.deleteMany({})
+  await Product.deleteMany({})
+  await Look.deleteMany({})
+
   const mihri = await User.create({
     firstName: 'mihri',
     lastName: 'mihri',

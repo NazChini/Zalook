@@ -37,8 +37,9 @@ const userSchema = new mongoose.Schema({
 })
 
 class User {
-  async addProductToLook(productPlacementObj, look) {
+  async addProductToLook(product, look) {
     look.products.push(product)
+    //import look!!
     await look.save()
   }
 
