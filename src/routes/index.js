@@ -1,14 +1,14 @@
-const express = require('express')
+const express = require("express");
 
-const router = express.Router()
+const router = express.Router();
 
 /* GET home page. */
-router.get('/', (req, res) => {
-  res.render('index', { title: 'db201' })
-})
+router.get("/", (req, res) => {
+  res.render("index", { title: "Zalook" });
+});
 
-router.get('/bootstrap', (req, res) => {
-  res.render('bootstrap', { title: 'bootstrap' })
-})
+router.get("/bootstrap", (req, res) => {
+  res.render("bootstrap", { title: "bootstrap" });
+});
 
-module.exports = router
+module.exports = router;

@@ -1,5 +1,5 @@
 {
-  "name": "db201",
+  "name": "zalook",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -21,7 +21,7 @@
       "pretty-quick --staged"
     ]
   },
-  "author": "Armagan Amcalar <armagan@amcalar.com>",
+  "author": "Nazneen Oomatia",
   "license": "MIT",
   "dependencies": {
     "cookie-parser": "^1.4.6",
