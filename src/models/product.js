@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const autopopulate = require("mongoose-autopopulate");
-const Look = require("../models/look");
 
 const productSchema = new mongoose.Schema({
   name: {
@@ -11,24 +10,23 @@ const productSchema = new mongoose.Schema({
   category: {
     type: String,
     required: true,
-    unique: true,
   },
   x: Number,
   y: Number,
 });
 
 class Product {
-  constructor(name, category) {
-    this.name = name;
-    this.category = category;
-    this.x = -1;
-    this.y = -1;
-  }
+  // constructor(name, category) {
+  //   this.name = name;
+  //   this.category = category;
+  //   this.x = -1;
+  //   this.y = -1;
+  // }
 
   async setCoordinates(x, y) {
     this.x = x;
     this.y = y;
-    // await this.save()
+    await this.save();
   }
 }
 

@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
+    "test": "jest --testEnvironment=node --verbose --forceExit --watchAll --maxWorkers=1",
+    "test-coverage": " jest --collect-coverage --testEnvironment=node --forceExit --maxWorkers=1",
     "lint": "lint-staged",
     "lint-all": "pretty-quick && eslint"
   },
@@ -27,6 +29,7 @@
     "cookie-parser": "^1.4.6",
     "debug": "^4.3.4",
     "dependencies": "^0.0.1",
+    "eslint-plugin-jest": "^26.1.5",
     "express": "^4.18.1",
     "http-errors": "^2.0.0",
     "mongoose": "^6.3.2",
@@ -35,8 +38,9 @@
     "pug": "^3.0.2"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.17.0",
     "connect-livereload": "^0.6.1",
-    "eslint": "^8.14.0",
+    "eslint": "^8.15.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
@@ -44,9 +48,11 @@
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.5.0",
     "husky": "^7.0.4",
+    "jest": "^28.1.0",
     "lint-staged": "^12.4.1",
     "livereload": "^0.9.3",
     "prettier": "^2.6.2",
-    "pretty-quick": "^3.1.3"
+    "pretty-quick": "^3.1.3",
+    "supertest": "^6.2.3"
   }
 }

@@ -1,4 +1,4 @@
-version: "3"
+version: '3'
 services:
   app:
     image: zalook
@@ -6,16 +6,20 @@ services:
       context: .
       dockerfile: Dockerfile
     environment:
-      # - MONGODB_USERNAME
-      # - MONGODB_PASSWORD
-      # - MONGODB_DATABASE
+      # 👇 for remote DB connection
+      # - MONGODB_USERNAME=root
+      # - MONGODB_PASSWORD=xqv6yQrDMcASPbiw
+      # - MONGODB_DATABASE=nazneen
+      # 👇 for local DB connection
       - MONGODB_CONNECTION_STRING=mongodb://mongo/zalook
     ports:
       - 3000:3000
       - 35729:35729
     volumes:
       - ./src:/app/src
+      - ./__tests__:/app/__tests__
   mongo:
     image: mongo
+    # 👇 to bind mongo to local port connection (to use Studio3T)
     ports:
       - 27017:27017
