@@ -7,7 +7,7 @@
  */
 
 const app = require('../src/app')
-const debug = require('debug')('db201:server')
+const debug = require('debug')('zalook:server')
 const http = require('http')
 
 /**
