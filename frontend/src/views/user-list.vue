@@ -1,0 +1,29 @@
+<script>
+// @ is an alias to /src
+import { mapActions } from 'vuex'
+
+export default {
+  name: 'UserList',
+  data() {
+    return {
+      users: [],
+      time: new Date(),
+    }
+  },
+  async created() {
+    this.users = await this.fetchUsers()
+  },
+  methods: {
+    ...mapActions(['fetchUsers']),
+  },
+}
+</script>
+
+<template lang="pug">
+  .home 
+    h1 zalook
+    p The time is: {{ time }}
+    h2 Users
+    div(v-for="user in users")
+      router-link(:to="`/users/${user._id}`") {{user.firstName}}
+</template>

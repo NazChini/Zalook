@@ -1,23 +1,18 @@
 {
-  "extends": [
-    "airbnb",
-    "plugin:jest/recommended",
-    "prettier",
-    "prettier/@typescript-eslint",
-    "prettier/babel",
-    "prettier/flowtype",
-    "prettier/react",
-    "prettier/standard",
-    "prettier/unicorn",
-    "prettier/vue"
-  ],
+  "extends": ["airbnb-base", "prettier", "plugin:jest/recommended"],
+  "plugins": ["prettier"],
   "rules": {
+    "prettier/prettier": ["error", { 
+        "singleQuote": true,
+        "arrowParens": "avoid",
+        "printWidth": 120,
+        "semi": false,
+        "trailingComma": "es5",
+        "tabWidth": 2 }],
+    "arrow-body-style": "off",
+    "prefer-arrow-callback": "off",
     "eqeqeq": "off",
     "class-methods-use-this": "off"
-  },
-  "settings": {
-    "react": {
-      "version": "latest"
-    }
   }
 }
+
