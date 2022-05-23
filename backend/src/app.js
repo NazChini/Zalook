@@ -16,6 +16,7 @@ require('./database-connection')
 
 //to connect mongodb to connect-mongo library
 const clientPromise = mongoose.connection.asPromise().then(connection => connection.getClient())
+const socketService = require('./socket-service')
 
 const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/users')
@@ -40,7 +41,10 @@ if (app.get('env') == 'development') {
     .watch([`${__dirname}/public`, `${__dirname}/views`])
 }
 
-// view engine setup
+app.set('io', socketService)
+
+// view engine setup - express lets us set global variables using app.set/app.get that can be used anywhere.
+//therefore any file that has access to app will be able to use the views files.
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'pug')
 

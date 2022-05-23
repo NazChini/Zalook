@@ -28,7 +28,7 @@ services:
       - MONGODB_CONNECTION_STRING=mongodb://mongo/zalook
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.backend.rule=(Host(`zalook.localhost`) && PathPrefix(`/api`))"
+      - "traefik.http.routers.backend.rule=(Host(`zalook.localhost`) && (PathPrefix(`/api`) || PathPrefix(`/socket`)))"
       - "traefik.http.routers.backend.entrypoints=web"
     ports:
       - 3000

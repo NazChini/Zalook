@@ -23,6 +23,10 @@ app.set('port', port)
 
 const server = http.createServer(app)
 
+//makes sure web socket and backend are using the same server
+//REST requests go to express app and web socket reqiests go to socket service.
+app.get('io').attach(server)
+
 /**
  * Listen on provided port, on all network interfaces.
  */
