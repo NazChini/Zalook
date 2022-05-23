@@ -28,6 +28,7 @@ router.post('/session', passport.authenticate('local', { failWithError: true }),
 router.delete('/session', async (req, res, next) => {
   await req.logout()
 
+  //security measure to give user completely new session when he logs out to make him truly anonymous.
   req.session.regenerate(err => {
     if (err) return next(err)
 

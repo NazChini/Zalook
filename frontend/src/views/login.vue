@@ -22,6 +22,7 @@ export default {
           password: this.password,
         })
 
+        // if its a successful login, redirects to profile page
         this.$router.push('/profile')
       } catch (e) {
         this.backendError = e.response.data.message
@@ -32,6 +33,7 @@ export default {
 </script>
 
 <template lang="pug">
+//- stores user data as local state and passes it to login action (above in methods)
 .login
     form(@submit="submitLogin")
       h1 Log in to your account
