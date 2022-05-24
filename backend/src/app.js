@@ -28,7 +28,7 @@ const app = express()
 app.use(
   cors({
     origin: true,
-    creadentials: true,
+    credentials: true,
   })
 )
 
