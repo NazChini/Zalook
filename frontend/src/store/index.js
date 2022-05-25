@@ -5,27 +5,18 @@ import axios from 'axios'
 //function to get our individual socket
 import io from 'socket.io-client'
 
+axios.defaults.baseURL = process.env.VUE_APP_BASE_URL
+axios.defaults.withCredentials = true
+
 Vue.use(Vuex)
 
 //is this socket initialization?
 //pass it to the url of our local server, in parameter pass in port name?
-const socket = io()
+const socket = io(process.env.VUE_APP_BASE_URL)
 
 socket.on('connect', () => {
-  console.log('we received message from the websocket server!')
+  console.log('connection established!')
 })
-
-// setInterval(() => {
-//   const number = Math.random()
-//   console.log(`i'm sending out a request`, number)
-//   socket.emit('new message', number, res => {
-//     console.log('this is a response', res)
-//   })
-
-//   socket.emit('another api', res => {
-//     console.log(res)
-//   })
-// }, 3000)
 
 const mutations = {
   SET_USER: 'set user',
@@ -86,7 +77,7 @@ const store = new Vuex.Store({
       commit(mutations.SET_USER, null)
     },
     async goLive({ state, commit }) {
-      socket.emit('go live', state.user._id, status => {
+      socket.emit('go live', state.user._id, () => {
         commit(mutations.SET_LIVE_STREAM, state.user._id)
       })
     },

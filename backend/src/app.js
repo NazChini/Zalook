@@ -25,9 +25,12 @@ const accountRouter = require('./routes/account')
 
 const app = express()
 
+//cors allows different domains to interact with each other. normally this would be a security issue and only trusted domains should be allowed to make requests on our domains.
 app.use(
   cors({
+    // allow any domain to request our domain
     origin: true,
+    // to be able to recieve cookies
     credentials: true,
   })
 )
@@ -40,6 +43,9 @@ if (app.get('env') == 'development') {
     .createServer({ extraExts: ['pug'] })
     .watch([`${__dirname}/public`, `${__dirname}/views`])
 }
+
+//proxy here is the google cloud load balancer that is managinf the FE, BE. We're telling the session's secure property to trust the proxy as it will be operating on HTTPs and not just http traffic that the BE is currently operating on.
+app.set('trust proxy', 1)
 
 app.set('io', socketService)
 
