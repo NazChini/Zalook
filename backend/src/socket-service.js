@@ -1,5 +1,11 @@
 //dont pass in the port connection as parameter in function call  IIFE?
-const io = require('socket.io')()
+const io = require('socket.io')({
+  cors: {
+    origin: true,
+    methods: ['GET', 'POST'],
+    credentials: true,
+  },
+})
 
 //runs everytime a client connects to a server, we get an instance of the socket object as cb?
 io.on('connect', socket => {
