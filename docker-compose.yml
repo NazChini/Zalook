@@ -5,6 +5,11 @@ services:
     build:
       context: frontend
       dockerfile: Dockerfile
+<<<<<<< HEAD
+=======
+    environment:
+      - PORT=8080
+>>>>>>> zalook-fe
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.frontend.rule=Host(`zalook.localhost`)"
@@ -13,6 +18,10 @@ services:
       - 8080
     volumes:
       - ./frontend/src:/app/src
+<<<<<<< HEAD
+=======
+      - ./frontend/public:/app/public
+>>>>>>> zalook-fe
   backend:
     image: backend
     build:
@@ -27,7 +36,11 @@ services:
       - MONGODB_CONNECTION_STRING=mongodb://mongo/zalook
     labels:
       - "traefik.enable=true"
+<<<<<<< HEAD
       - "traefik.http.routers.backend.rule=(Host(`zalook.localhost`) && PathPrefix(`/api`))"
+=======
+      - "traefik.http.routers.backend.rule=(Host(`zalook.localhost`) && (PathPrefix(`/api`) || PathPrefix(`/socket`)))"
+>>>>>>> zalook-fe
       - "traefik.http.routers.backend.entrypoints=web"
     ports:
       - 3000

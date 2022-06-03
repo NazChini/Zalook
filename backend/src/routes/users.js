@@ -10,8 +10,16 @@ const Product = require('../models/product')
 router.get('/', async (req, res) => {
   const query = {}
 
-  if (req.query.name) {
-    query.name = req.query.name
+  if (req.query.email) {
+    query.email = req.query.email
+  }
+
+  if (req.query.firstName) {
+    query.firstName = req.query.firstName
+  }
+
+  if (req.query.lastName) {
+    query.lastName = req.query.lastName
   }
 
   res.send(await User.find(query))
@@ -49,22 +57,26 @@ router.get('/initialize', async (req, res) => {
     firstName: 'mihri',
     lastName: 'mihri',
     email: 'mihri@mihri.com',
-    password: 'password',
   })
+  await mihri.setPassword('test')
+  await mihri.save()
+
   const armagan = await User.create({
     firstName: 'armagan',
     lastName: 'armagan',
     email: 'armagan@armagan.com',
-    password: 'password',
   })
+  await armagan.setPassword('test')
+  await armagan.save()
 
   const steve = await User.create({
     firstName: 'steve',
     lastName: 'steve',
     email: 'steve@steve.com',
-    password: 'password',
   })
   steve.bio = 'An amazing fashionista with an eye for detail'
+  await steve.setPassword('test')
+  await steve.save()
 
   const versaceGown = await Product.create({
     name: 'versace',
@@ -90,11 +102,32 @@ router.get('/initialize', async (req, res) => {
   res.sendStatus(200)
 })
 
+// router.post('/:userId/looks', async (req, res) => {
+//   const user = await User.findById(req.params.userId)
+//   const look = await Look.findById(req.body.lookId)
+
+//   await user.addPhoto(photo)
+//   res.sendStatus(200)
+// })
+
+// router.post('/:userId/products', async (req, res) => {
+//   const user = await User.findById(req.params.userId)
+//   const product = await Product.findById(req.body.productId)
+
+//   await user.likePhoto(photo)
+//   res.sendStatus(200)
+// })
+
 router.get('/:userId', async (req, res) => {
   const user = await User.findById(req.params.userId)
 
-  if (user) res.render('user', { user })
+  if (user) res.send(user)
   else res.sendStatus(404)
+})
+
+router.get('/:userId/json', async (req, res) => {
+  const user = await User.findById(req.params.userId)
+  res.send(user)
 })
 
 module.exports = router
