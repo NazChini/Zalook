@@ -38,19 +38,19 @@ export default {
 <style scoped>
 .flexbox {
   display: flex;
-  /* justify-content: space-between; */
+  justify-content: space-between;
 
-  /* width: 100%; */
-  /* max-width: 768px; */
+  width: 100%;
+  max-width: 768px;
   height: 100vh;
 
   margin: 0 auto;
   padding: 15px;
 }
 
-.flexbox:first-child {
+/* .flexbox:first-child {
   width: 30%;
-}
+} */
 </style>
 
 <template lang="pug">
