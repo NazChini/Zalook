@@ -4,9 +4,7 @@ export default {
   name: 'ProductCard',
   props: ['product'],
   data() {
-    return {
-      
-    }
+    return {}
   },
 }
 </script>
