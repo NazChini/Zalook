@@ -1,46 +1,33 @@
-<script></script>
+<script>
+export default {
+  name: 'AboutView',
+}
+</script>
 
-<template lang="pug">
-    .container
-        .section-text
-            .logo-container
-                    img.logo-img(src='#')
-            main
-                h1 Create your Look <br> Find your Style
-                h2 MIX, MATCH, DISCOVER AND CREATE OUTFITS!
-                p Date Night? 
-                p Picnic at the beach?
-                p Just another day at work?
-                p Coming up with ‘complete’ outfits for that perfect look is now a breeze with our look boards! 
-                button.btn.btn-get-started Get Started
-                button.btn.btn-video >
-                span Want a Sneak Peek?
-            
-        .section-carousel
-            .slider
-                .slide-track
-                    .slide
-                    img(src='https://picsum.photos/250/100' height='100' width='250' alt='')
-                    .slide
-                    img(src='https://picsum.photos/250/100' height='100' width='250' alt='')
-                    .slide
-                    img(src='https://picsum.photos/250/100' height='100' width='250' alt='')
-                    .slide
-                    img(src='https://picsum.photos/250/100' height='100' width='250' alt='')
-                    .slide
-                    img(src='https://picsum.photos/250/100' height='100' width='250' alt='')
-                    .slide
-                    img(src='https://picsum.photos/250/100' height='100' width='250' alt='')
-                    .slide
-                    img(src='https://picsum.photos/250/100' height='100' width='250' alt='')
-                    .slide
-                    img(src='https://picsum.photos/250/100' height='100' width='250' alt='')
-                    .slide
-                    img(src='https://picsum.photos/250/100' height='100' width='250' alt='')
-                    .slide
-                    img(src='https://picsum.photos/250/100' height='100' width='250' alt='')
-    
-        
+<template>
+  <div id="about">
+    <main>
+      <!-- <zalook-logo /> -->
+      <div class="call-to-action">
+        <p class="tagline big-screen-only" aria-hidden="true">Mix, match, discover and create outfits!</p>
+        <h2>
+          Create your Look <br />
+          Find your Style
+        </h2>
+        <p>Date Night?</p>
+        <p>Picnic at the beach?</p>
+        <p>Just another day at work?</p>
+        <p class="gap">Coming up with 'complete' outfits for that perfect look is now a breeze with our look boards!</p>
+        <div class="buttons-wrapper">
+          <router-link class="btn btn-primary" to="/get-started">Get Started </router-link>
+          <!-- <button class="btn btn-secondary" @click="showVideo">Sneak Peek</button> -->
+        </div>
+      </div>
+    </main>
+
+    <!-- <slide-show :direction="1" /> -->
+    <!-- <slide-show class="big-screen" :direction="-1" /> -->
+  </div>
 </template>
 
 <style lang="scss" scoped>
