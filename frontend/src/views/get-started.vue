@@ -1,12 +1,14 @@
 <script>
 import ZalookLogo from '../components/blocks/zalook-logo.vue'
 import SlideShow from '../components/blocks/slide-show.vue'
+import Register from './register'
 
 export default {
   name: 'GetStarted',
   components: {
     ZalookLogo,
     SlideShow,
+    Register,
   },
   data() {
     return {
@@ -29,8 +31,8 @@ export default {
         <p :class="{ highlightText: !isNewUser }" class="login" @click="renderLoginView">Login</p>
         <p :class="{ highlightText: isNewUser }" class="register">Sign Up</p>
       </div>
-      <!-- <register-view v-if="isNewUser" />
-      <login-view v-else /> -->
+      <register v-if="isNewUser" />
+      <!-- <login-view v-else /> -->
       <!-- <p class="already-registered" @click="renderLoginView">
         Already Registered?
       </p> -->
