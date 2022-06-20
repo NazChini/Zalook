@@ -1,13 +1,18 @@
 <script>
+import ZalookLogo from '../components/blocks/zalook-logo.vue'
+
 export default {
   name: 'AboutView',
+  components: {
+    ZalookLogo,
+  },
 }
 </script>
 
 <template>
   <div id="about">
     <main>
-      <!-- <zalook-logo /> -->
+      <zalook-logo />
       <div class="call-to-action">
         <p class="tagline big-screen-only" aria-hidden="true">Mix, match, discover and create outfits!</p>
         <h2>
