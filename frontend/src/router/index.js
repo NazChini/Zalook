@@ -14,14 +14,14 @@ export default function init(store) {
     routes: [
       {
         path: '/',
-        name: 'UserList',
-        component: UserList,
-      },
-      {
-        path: '/about',
         name: 'AboutPage',
         component: AboutPage,
       },
+      // {
+      //   path: '/about',
+      //   name: 'AboutPage',
+      //   component: AboutPage,
+      // },
       {
         path: '/users/:id',
         name: 'UserDetail',
