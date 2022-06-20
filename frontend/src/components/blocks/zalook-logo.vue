@@ -9,8 +9,8 @@
 
 <script>
 export default {
-  name: "ZalookLogo",
-};
+  name: 'ZalookLogo',
+}
 </script>
 
 <style lang="scss" scoped>
