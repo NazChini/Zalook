@@ -18,9 +18,9 @@ router.get('/', async (req, res) => {
     query.firstName = req.query.firstName
   }
 
-  if (req.query.lastName) {
-    query.lastName = req.query.lastName
-  }
+  // if (req.query.lastName) {
+  //   query.lastName = req.query.lastName
+  // }
 
   res.send(await User.find(query))
 })
@@ -55,7 +55,7 @@ router.get('/initialize', async (req, res) => {
 
   const mihri = await User.create({
     firstName: 'mihri',
-    lastName: 'mihri',
+    // lastName: 'mihri',
     email: 'mihri@mihri.com',
   })
   await mihri.setPassword('test')
@@ -63,7 +63,7 @@ router.get('/initialize', async (req, res) => {
 
   const armagan = await User.create({
     firstName: 'armagan',
-    lastName: 'armagan',
+    // lastName: 'armagan',
     email: 'armagan@armagan.com',
   })
   await armagan.setPassword('test')
@@ -71,7 +71,7 @@ router.get('/initialize', async (req, res) => {
 
   const steve = await User.create({
     firstName: 'steve',
-    lastName: 'steve',
+    // lastName: 'steve',
     email: 'steve@steve.com',
   })
   steve.bio = 'An amazing fashionista with an eye for detail'
@@ -125,9 +125,9 @@ router.get('/:userId', async (req, res) => {
   else res.sendStatus(404)
 })
 
-router.get('/:userId/json', async (req, res) => {
-  const user = await User.findById(req.params.userId)
-  res.send(user)
-})
+// router.get('/:userId/json', async (req, res) => {
+//   const user = await User.findById(req.params.userId)
+//   res.send(user)
+// })
 
 module.exports = router
