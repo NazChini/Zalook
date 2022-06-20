@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import AboutPage from '../views/about-page.vue'
+import GetStarted from '../views/get-started.vue'
 import UserList from '../views/user-list.vue'
 import Login from '../views/login.vue'
 import Register from '../views/register.vue'
@@ -17,11 +18,11 @@ export default function init(store) {
         name: 'AboutPage',
         component: AboutPage,
       },
-      // {
-      //   path: '/about',
-      //   name: 'AboutPage',
-      //   component: AboutPage,
-      // },
+      {
+        path: '/get-started',
+        name: 'GetStarted',
+        component: GetStarted,
+      },
       {
         path: '/users/:id',
         name: 'UserDetail',
