@@ -4,15 +4,15 @@ const request = require('supertest')
 describe('Users endpoints', () => {
   it('post request to /users should create a user', async () => {
     const userToCreate = {
-      firstName: 'firstName' + Date.now(),
-      lastName: 'lastName' + Date.now(),
+      name: 'name' + Date.now(),
+      // lastName: 'lastName' + Date.now(),
       email: 'email' + Date.now(),
       password: 'password' + Date.now(),
     }
 
     const createdUser = (await request(app).post('/users').send(userToCreate)).body
-    expect(createdUser.firstName).toBe(userToCreate.firstName)
-    expect(createdUser.lastName).toBe(userToCreate.lastName)
+    expect(createdUser.name).toBe(userToCreate.name)
+    // expect(createdUser.lastName).toBe(userToCreate.lastName)
     expect(createdUser.email).toBe(userToCreate.email)
     expect(createdUser.password).toBe(userToCreate.password)
   })

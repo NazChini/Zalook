@@ -11,10 +11,12 @@ router.get('/session', (req, res) => {
 })
 
 router.post('/', async (req, res, next) => {
-  const { firstName, lastName, email, password } = req.body
+  // const { name, lastName, email, password } = req.body
+  const { name, email, password } = req.body
 
   try {
-    const user = await User.register({ firstName, lastName, email }, password)
+    // const user = await User.register({ name, lastName, email }, password)
+    const user = await User.register({ name, email }, password)
     res.send(user)
   } catch (e) {
     next(e)

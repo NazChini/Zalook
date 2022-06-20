@@ -1,8 +1,8 @@
 extends layout
 
 block content
-  //- h1 #{user.firstName} (#{user.lastName})
-  h1 #{user.firstName}
+  //- h1 #{user.name} (#{user.lastName})
+  h1 #{user.name}
   p Bio: #{user.bio}
   if user.products.length == 0
     p no favourite products yet!

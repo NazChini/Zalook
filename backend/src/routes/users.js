@@ -14,8 +14,8 @@ router.get('/', async (req, res) => {
     query.email = req.query.email
   }
 
-  if (req.query.firstName) {
-    query.firstName = req.query.firstName
+  if (req.query.name) {
+    query.name = req.query.name
   }
 
   // if (req.query.lastName) {
@@ -54,7 +54,7 @@ router.get('/initialize', async (req, res) => {
   await Look.deleteMany({})
 
   const mihri = await User.create({
-    firstName: 'mihri',
+    name: 'mihri',
     // lastName: 'mihri',
     email: 'mihri@mihri.com',
   })
@@ -62,7 +62,7 @@ router.get('/initialize', async (req, res) => {
   await mihri.save()
 
   const armagan = await User.create({
-    firstName: 'armagan',
+    name: 'armagan',
     // lastName: 'armagan',
     email: 'armagan@armagan.com',
   })
@@ -70,7 +70,7 @@ router.get('/initialize', async (req, res) => {
   await armagan.save()
 
   const steve = await User.create({
-    firstName: 'steve',
+    name: 'steve',
     // lastName: 'steve',
     email: 'steve@steve.com',
   })
