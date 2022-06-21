@@ -3,7 +3,7 @@ import { mapActions } from 'vuex'
 
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
-  name: 'register',
+  name: 'RegisterView',
   data() {
     return {
       name: '',
