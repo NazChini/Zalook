@@ -2,12 +2,15 @@
   <div class="slideshow--container">
     <picture class="slideshow">
       <source
-        :style="transform"
-        class="slider"
+        :class="{ 'move-up': direction === 'up', slider: true }"
         media="(min-width:990px)"
         srcset="../../assets/images/slider-vertical.png"
       />
-      <img class="slider" src="../../assets/images/slider-horizontal.png" alt="" />
+      <img
+        :class="{ 'move-up': direction === 'up', slider: true }"
+        src="../../assets/images/slider-horizontal.png"
+        alt=""
+      />
     </picture>
   </div>
 </template>
@@ -15,19 +18,7 @@
 <script>
 export default {
   name: 'SlideShow',
-  props: {
-    direction: {
-      type: Number,
-      default: 1,
-    },
-  },
-  computed: {
-    transform() {
-      return {
-        '--transform': 'translateY(' + this.direction * -66.6666 + '%)',
-      }
-    },
-  },
+  props: ['direction'],
 }
 </script>
 
@@ -49,10 +40,13 @@ export default {
   }
 
   .slider {
-    animation: moveSlideshow 180s linear infinite;
+    animation: moveSlideshowDown 180s linear infinite;
+    &.move-up {
+      animation: moveSlideshowUp 180s linear infinite;
+    }
   }
 
-  @keyframes moveSlideshow {
+  @keyframes moveSlideshowUp {
     100% {
       transform: translateX(-66.6666%);
     }
@@ -62,15 +56,20 @@ export default {
     width: 30%;
     height: 100vh;
 
-    @keyframes moveSlideshow {
+    @keyframes moveSlideshowDown {
       100% {
         transform: translateY(-66.6666%);
-        // transform: var(--transform);
+      }
+    }
+
+    @keyframes moveSlideshowUp {
+      100% {
+        transform: translateY(66.6666%);
       }
     }
 
     @media only screen and (min-width: 1200px) {
-      width: 20%;
+      width: 22%;
     }
   }
 
@@ -78,7 +77,5 @@ export default {
     display: none;
     visibility: hidden;
   }
-
-  //   @media only screen and (min-width: 1200px);
 }
 </style>

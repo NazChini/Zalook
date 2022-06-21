@@ -3,7 +3,7 @@ import ZalookLogo from '../components/blocks/zalook-logo.vue'
 import SlideShow from '../components/blocks/slide-show.vue'
 
 export default {
-  name: 'AboutView',
+  name: 'AboutPage',
   components: {
     SlideShow,
     ZalookLogo,
@@ -32,8 +32,8 @@ export default {
       </div>
     </main>
 
-    <slide-show :direction="1" />
-    <slide-show class="big-screen" :direction="-1" />
+    <slide-show direction="up" />
+    <slide-show class="big-screen" direction="down" />
   </div>
 </template>
 
