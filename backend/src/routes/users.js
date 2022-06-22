@@ -125,9 +125,9 @@ router.get('/:userId', async (req, res) => {
   else res.sendStatus(404)
 })
 
-// router.get('/:userId/json', async (req, res) => {
-//   const user = await User.findById(req.params.userId)
-//   res.send(user)
-// })
+router.get('/:userId/json', async (req, res) => {
+  const user = await User.findById(req.params.userId)
+  res.send(user)
+})
 
 module.exports = router
