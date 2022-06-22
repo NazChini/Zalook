@@ -1,57 +1,3 @@
-<script>
-import ZalookLogo from '../components/blocks/zalook-logo.vue'
-import SlideShow from '../components/blocks/slide-show.vue'
-import RegisterView from './register-view'
-import LoginView from './login-view'
-
-export default {
-  name: 'GetStarted',
-  components: {
-    ZalookLogo,
-    SlideShow,
-    RegisterView,
-    LoginView,
-  },
-  data() {
-    return {
-      isNewUser: true,
-    }
-  },
-  methods: {
-    renderLoginView() {
-      this.isNewUser = false
-    },
-    renderRegisterView() {
-      this.isNewUser = true
-    },
-  },
-}
-</script>
-
-<template>
-  <div id="get-started-container">
-    <main>
-      <zalook-logo />
-      <div class="flex">
-        <div class="container">
-          <div class="get-started-header">
-            <p :class="{ highlightText: !isNewUser }" class="login" @click="renderLoginView">Login</p>
-            <p :class="{ highlightText: isNewUser }" class="register" @click="renderRegisterView">Sign Up</p>
-          </div>
-          <register-view v-if="isNewUser" />
-          <login-view v-else />
-          <!-- <p class="already-registered" @click="renderLoginView">
-        Already Registered?
-      </p> -->
-        </div>
-      </div>
-    </main>
-    <slide-show direction="up" />
-    <slide-show class="big-screen" direction="down" />
-  </div>
-</template>
-
-<style lang="scss" scoped>
 #get-started-container {
   min-height: 100vh;
   overflow: hidden;
@@ -107,14 +53,6 @@ export default {
         color: #000;
       }
 
-      // register-view,
-      // login-view {
-      //   display: none;
-      //   visibility: hidden;
-      // }
-
-      // .visible {}
-
       @media only screen and (min-width: 768px) {
         font-size: 1.25rem;
 
@@ -148,4 +86,3 @@ export default {
     }
   }
 }
-</style>

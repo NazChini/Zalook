@@ -26,7 +26,7 @@ export default {
         <p>Just another day at work?</p>
         <p class="gap">Coming up with 'complete' outfits for that perfect look is now a breeze with our look boards!</p>
         <div class="buttons-wrapper">
-          <router-link class="btn btn-primary" to="/get-started">Get Started </router-link>
+          <router-link class="btn btn-primary" to="/register">Get Started </router-link>
           <!-- <button class="btn btn-secondary" @click="showVideo">Sneak Peek</button> -->
         </div>
       </div>

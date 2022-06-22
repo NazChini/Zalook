@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import AboutPage from '../views/about-page.vue'
 import GetStarted from '../views/get-started.vue'
 import LoginView from '../views/login-view.vue'
-import RegisterView from '../views/register.vue'
+import RegisterView from '../views/register-view.vue'
 import HomePage from '../views/home-page.vue'
 
 Vue.use(VueRouter)
@@ -36,7 +36,7 @@ export default function init(store) {
         name: 'register',
         component: RegisterView,
         beforeEnter(to, from, next) {
-          if (store.state.user) return next('/home')
+          if (store.state.user) return next('/login')
           return next()
         },
       },

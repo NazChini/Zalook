@@ -1,9 +1,15 @@
 <script>
 import { mapActions } from 'vuex'
+import ZalookLogo from '../components/blocks/zalook-logo.vue'
+import SlideShow from '../components/blocks/slide-show.vue'
 
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: 'LoginView',
+  components: {
+    ZalookLogo,
+    SlideShow,
+  },
   data() {
     return {
       email: '',
@@ -11,8 +17,10 @@ export default {
       backendError: null,
     }
   },
+
   methods: {
     ...mapActions(['login']),
+
     async submitLogin(e) {
       e.preventDefault()
 
@@ -23,7 +31,7 @@ export default {
         })
 
         // if its a successful login, redirects to profile page
-        this.$router.push('/profile')
+        this.$router.push('/home')
       } catch (e) {
         this.backendError = e.response.data.message
       }
@@ -34,21 +42,34 @@ export default {
 
 <template lang="pug">
 //- stores user data as local state and passes it to login action (above in methods)
-.login
-    form(@submit="submitLogin")
-      
-      label(for="email") Email
-        br
-        input(v-model="email" id="email" type="email" placeholder="johnsondoe@nomail.com" required)
-      label(for="password") Password
-        br
-        input(v-model="password" id="password" type="password" minlength="8" placeholder="********" required)
-      input(type="submit" value="Log in" class="btn-submit")
-    div(v-if="backendError") {{ backendError }}
-    //- div Don't have an account yet? <router-link to="/register">Register</router-link>
+#get-started-container
+  main
+    zalook-logo
+    .flex
+      .container
+        .get-started-header
+          p.login(:class='{ highlightText: true }' ) Login
+          router-link.register(to='/register') Sign Up
+
+    .login
+        form(@submit="submitLogin")
+          
+          label(for="email") Email
+            br
+            input(v-model="email" id="email" type="email" placeholder="johnsondoe@nomail.com" required)
+          label(for="password") Password
+            br
+            input(v-model="password" id="password" type="password" minlength="8" placeholder="********" required)
+          input(type="submit" value="Log in" class="btn-submit")
+        div(v-if="backendError") {{ backendError }}
+        //- div Don't have an account yet? <router-link to="/register">Register</router-link>
+  slide-show(direction='up')
+  slide-show.big-screen(direction='down')
 </template>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/get-started-style.scss';
+
 .login {
   form {
     display: flex;
