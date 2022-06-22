@@ -1,4 +1,5 @@
 # Zalook 
+# This Project is a work in progress and will be achieve MVP status on 30th June, 2022
 ## A fashion mood board for Zalando
 Capstone Project @ Coyotiv School of Software Engineering
 
