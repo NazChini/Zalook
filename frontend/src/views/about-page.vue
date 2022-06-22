@@ -185,8 +185,8 @@ export default {
 
     @media only screen and (min-width: 990px) {
       h2 {
-        font-size: 4.25rem;
-        line-height: 5.56rem;
+        font-size: 3.8rem;
+        line-height: 5rem;
         margin-bottom: 0.1em;
       }
     }
