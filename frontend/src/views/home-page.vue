@@ -1,6 +1,6 @@
 <script>
 import { mapActions } from 'vuex'
-// import Look from '@/components/look.vue'
+import Look from '@/components/look.vue'
 // import LookControls from '@/components/look-controls.vue'
 import LookHeader from '@/components/look-header.vue'
 
@@ -8,7 +8,7 @@ export default {
   name: 'HomePage',
   components: {
     LookHeader,
-    // Look,
+    Look,
     // LookControls,
   },
   data() {
@@ -29,8 +29,7 @@ export default {
   <div class="home">
     <div class="content">
       <look-header :userName="user.name" />
-
-      <!-- <look /> -->
+      <look />
       <!-- <look-controls /> -->
     </div>
   </div>
