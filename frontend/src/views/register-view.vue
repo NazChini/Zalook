@@ -49,25 +49,24 @@ export default {
       .container
         .get-started-header
           router-link.login(to='/login') Login
-          p.register(:class='{ highlightText: true }') Sign Up
+          p(:class='{ highlightText: true }') Sign Up
           
-
-    .register
-        form( @submit="submitRegister") 
-          label(for="name") Name
-            br
-            input(v-model="name" id="name" type="text" placeholder="Johnson Doe" required)
-          //- label(for="lastName") LastName:&nbsp;
-          //-   input(v-model="lastName" id="lastName" type="text" placeholder="Your last name" required)
-          label(for="email") Email
-            br
-            input(v-model="email" id="email" type="email" placeholder="johnsondoe@nomail.com" required)
-          label(for="password") Password
-            br
-            input(v-model="password" id="password" type="password" minlength="8" placeholder="********" required)
-          input(type="submit" value="Continue" class="btn-submit")
-        div(v-if="backendError") {{ backendError }}
-        //- div Already have an account? <router-link to="/login">Log in</router-link>
+      .register
+          form( @submit="submitRegister") 
+            label(for="name") Name
+              br
+              input(v-model="name" id="name" type="text" placeholder="Johnson Doe" required)
+            //- label(for="lastName") LastName:&nbsp;
+            //-   input(v-model="lastName" id="lastName" type="text" placeholder="Your last name" required)
+            label(for="email") Email
+              br
+              input(v-model="email" id="email" type="email" placeholder="johnsondoe@nomail.com" required)
+            label(for="password") Password
+              br
+              input(v-model="password" id="password" type="password" minlength="8" placeholder="********" required)
+            input(type="submit" value="Continue" class="btn-submit")
+          div(v-if="backendError") {{ backendError }}
+          //- div Already have an account? <router-link to="/login">Log in</router-link>
   slide-show(direction='up')
   slide-show.big-screen(direction='down')
 </template>

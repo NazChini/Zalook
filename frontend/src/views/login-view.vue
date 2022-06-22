@@ -51,18 +51,18 @@ export default {
           p.login(:class='{ highlightText: true }' ) Login
           router-link.register(to='/register') Sign Up
 
-    .login
-        form(@submit="submitLogin")
-          
-          label(for="email") Email
-            br
-            input(v-model="email" id="email" type="email" placeholder="johnsondoe@nomail.com" required)
-          label(for="password") Password
-            br
-            input(v-model="password" id="password" type="password" minlength="8" placeholder="********" required)
-          input(type="submit" value="Log in" class="btn-submit")
-        div(v-if="backendError") {{ backendError }}
-        //- div Don't have an account yet? <router-link to="/register">Register</router-link>
+      .login
+          form(@submit="submitLogin")
+            
+            label(for="email") Email
+              br
+              input(v-model="email" id="email" type="email" placeholder="johnsondoe@nomail.com" required)
+            label(for="password") Password
+              br
+              input(v-model="password" id="password" type="password" minlength="8" placeholder="********" required)
+            input(type="submit" value="Log in" class="btn-submit")
+          div(v-if="backendError") {{ backendError }}
+          //- div Don't have an account yet? <router-link to="/register">Register</router-link>
   slide-show(direction='up')
   slide-show.big-screen(direction='down')
 </template>
