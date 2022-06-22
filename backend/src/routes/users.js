@@ -127,7 +127,9 @@ router.get('/:userId', async (req, res) => {
 
 router.get('/:userId/json', async (req, res) => {
   const user = await User.findById(req.params.userId)
-  res.send(user)
+
+  if (user) res.send(user)
+  else res.sendStatus(404)
 })
 
 module.exports = router
