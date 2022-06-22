@@ -61,7 +61,10 @@ export default {
       <i class="fa-solid fa-pencil fa-xl"></i>
     </div>
     <div class="note">
-      <p>Use the pencil tool to draw on the canvas. Click on it again to deactivate drawing mode.</p>
+      <p>
+        Use the pencil tool to draw on the canvas. Click on it again to deactivate drawing mode. Resize or rotate your
+        drawing by selecting it.
+      </p>
     </div>
   </div>
 </template>
@@ -113,7 +116,7 @@ export default {
     width: 65%;
     color: grey;
     font-style: italic;
-    font-size: 0.65rem;
+    font-size: 0.6rem;
     text-align: left;
     position: fixed;
     bottom: 6%;
@@ -123,15 +126,15 @@ export default {
 
   @media only screen and (min-width: 768px) {
     .note {
-      width: 100%;
       font-size: 0.8rem;
-      bottom: 7%;
+      bottom: 6%;
       left: 18%;
     }
   }
 
   @media only screen and (min-width: 1200px) {
     .note {
+      width: 100%;
       font-size: 1rem;
       left: 14%;
     }
