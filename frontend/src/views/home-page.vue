@@ -1,9 +1,26 @@
 <script>
 import { mapActions } from 'vuex'
+// import Look from '@/components/look.vue'
+// import LookControls from '@/components/look-controls.vue'
+// import LookHeader from '@/components/look-header.vue'
 
 export default {
-  name: 'Home-Page',
+  name: 'HomePage',
+  components: {
+    // LookHeader,
+    // Look,
+    // LookControls,
+  },
+  // data() {
+  //   return {
+  //     user: this.$store.state.user || null,
+  //   }
+  // },
+  // async created() {
+  //   this.user = await this.fetchUser(this.$route.params.id)
+  // },
   methods: {
+    // ...mapActions(['fetchUser']),
     ...mapActions(['logout']),
     async doLogout() {
       await this.logout()
@@ -13,44 +30,34 @@ export default {
 }
 </script>
 
-<template lang="pug">
-//- #nav
-//-     router-link(to="/profile") Profile
-//-     router-link(to="/login") Login
-//-     router-link(to="/register") Register
-//-     a(@click="doLogout" href="#") Logout
-//- router-view
+<template lan="pug">
+  <div class="home">
+    <div class="content">
+      <!-- <look-header :user="user" v-if="user" /> -->
+      <h1>Hello</h1>
+      <a @click="doLogout" href="#">Logout</a>
+
+      <!-- <look /> -->
+      <!-- <look-controls /> -->
+    </div>
+  </div>
 </template>
 
-<style lang="scss">
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background-color: #f3f3f3;
-}
-
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+<style lang="scss" scoped>
+.content {
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  color: #2c3e50;
-}
 
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+  look-header {
+    margin: 3em 0;
   }
+}
+look {
+  width: 90%;
 }
 </style>

@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import AboutPage from '../views/about-page.vue'
-import GetStarted from '../views/get-started.vue'
 import LoginView from '../views/login-view.vue'
 import RegisterView from '../views/register-view.vue'
 import HomePage from '../views/home-page.vue'
@@ -18,11 +17,7 @@ export default function init(store) {
         name: 'AboutPage',
         component: AboutPage,
       },
-      {
-        path: '/get-started',
-        name: 'GetStarted',
-        component: GetStarted,
-      },
+
       // {
       //   path: '/users/:id',
       //   name: 'UserDetail',
@@ -45,7 +40,7 @@ export default function init(store) {
         name: 'login',
         component: LoginView,
         beforeEnter(to, from, next) {
-          if (store.state.user) return next('/home')
+          if (store.state.user) return next('/')
           return next()
         },
       },
