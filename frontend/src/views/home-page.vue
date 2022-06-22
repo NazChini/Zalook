@@ -1,7 +1,7 @@
 <script>
 import { mapActions } from 'vuex'
 import Look from '@/components/look.vue'
-// import LookControls from '@/components/look-controls.vue'
+// import LookDashboard from '@/components/look-dashboard.vue'
 import LookHeader from '@/components/look-header.vue'
 
 export default {
@@ -9,7 +9,7 @@ export default {
   components: {
     LookHeader,
     Look,
-    // LookControls,
+    // LookDashBoard,
   },
   data() {
     return {
@@ -30,7 +30,7 @@ export default {
     <div class="content">
       <look-header :userName="user.name" />
       <look />
-      <!-- <look-controls /> -->
+      <!-- <look-dashboard :look="look" /> -->
     </div>
   </div>
 </template>
