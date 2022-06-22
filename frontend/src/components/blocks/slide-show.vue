@@ -69,7 +69,7 @@ export default {
     }
 
     @media only screen and (min-width: 1200px) {
-      width: 22%;
+      width: 25%;
     }
   }
 
