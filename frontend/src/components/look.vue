@@ -60,6 +60,9 @@ export default {
     <div @click="toggleDrawingMode" class="pencil">
       <i class="fa-solid fa-pencil fa-xl"></i>
     </div>
+    <div class="note">
+      <p>Use the pencil tool to draw on the canvas. Click on it again to deactivate drawing mode.</p>
+    </div>
   </div>
 </template>
 
@@ -85,10 +88,52 @@ export default {
     height: 3em;
     border: 0.3em solid #f7c4ba;
     border-radius: 50%;
+    cursor: pointer;
 
     i {
       color: #fff;
       padding: 0.9em 0;
+    }
+  }
+
+  .pencil:hover,
+  .pencil:focus {
+    background: #000;
+    border-color: lightgrey;
+  }
+
+  .pencil:active {
+    transform: scale(0.9);
+    /* Scaling button to 0.98 to its original size */
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+    /* Lowering the shadow */
+  }
+
+  .note {
+    width: 65%;
+    color: grey;
+    font-style: italic;
+    font-size: 0.65rem;
+    text-align: left;
+    position: fixed;
+    bottom: 6%;
+    left: 25%;
+    background: rgba(255, 255, 255, 0.5);
+  }
+
+  @media only screen and (min-width: 768px) {
+    .note {
+      width: 100%;
+      font-size: 0.8rem;
+      bottom: 7%;
+      left: 18%;
+    }
+  }
+
+  @media only screen and (min-width: 1200px) {
+    .note {
+      font-size: 1rem;
+      left: 14%;
     }
   }
 }
