@@ -40,7 +40,7 @@ export default function init(store) {
         name: 'login',
         component: LoginView,
         beforeEnter(to, from, next) {
-          if (store.state.user) return next('/')
+          if (store.state.user) return next('/home')
           return next()
         },
       },

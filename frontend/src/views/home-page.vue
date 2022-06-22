@@ -2,30 +2,25 @@
 import { mapActions } from 'vuex'
 // import Look from '@/components/look.vue'
 // import LookControls from '@/components/look-controls.vue'
-// import LookHeader from '@/components/look-header.vue'
+import LookHeader from '@/components/look-header.vue'
 
 export default {
   name: 'HomePage',
   components: {
-    // LookHeader,
+    LookHeader,
     // Look,
     // LookControls,
   },
-  // data() {
-  //   return {
-  //     user: this.$store.state.user || null,
-  //   }
-  // },
-  // async created() {
-  //   this.user = await this.fetchUser(this.$route.params.id)
-  // },
+  data() {
+    return {
+      user: null,
+    }
+  },
+  async created() {
+    this.user = await this.fetchUser(this.$store.state.user._id)
+  },
   methods: {
-    // ...mapActions(['fetchUser']),
-    ...mapActions(['logout']),
-    async doLogout() {
-      await this.logout()
-      this.$router.push('/login')
-    },
+    ...mapActions(['fetchUser']),
   },
 }
 </script>
@@ -33,9 +28,7 @@ export default {
 <template lan="pug">
   <div class="home">
     <div class="content">
-      <!-- <look-header :user="user" v-if="user" /> -->
-      <h1>Hello</h1>
-      <a @click="doLogout" href="#">Logout</a>
+      <look-header :userName="user.name" />
 
       <!-- <look /> -->
       <!-- <look-controls /> -->
