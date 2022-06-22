@@ -14,7 +14,7 @@ export default {
 <template lang="pug">
 .box 
   p Hello!
-  h1 {{ user.firstName }} ({{ user.email }}) 
+  h1 {{ user.name }} ({{ user.email }}) 
   //- p Bio: {{ user.bio || defaultBio }} 
   //- h2 Looks: ({{ user.looks.length }})
 </template>

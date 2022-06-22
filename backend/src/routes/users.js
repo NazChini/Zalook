@@ -14,13 +14,13 @@ router.get('/', async (req, res) => {
     query.email = req.query.email
   }
 
-  if (req.query.firstName) {
-    query.firstName = req.query.firstName
+  if (req.query.name) {
+    query.name = req.query.name
   }
 
-  if (req.query.lastName) {
-    query.lastName = req.query.lastName
-  }
+  // if (req.query.lastName) {
+  //   query.lastName = req.query.lastName
+  // }
 
   res.send(await User.find(query))
 })
@@ -54,24 +54,24 @@ router.get('/initialize', async (req, res) => {
   await Look.deleteMany({})
 
   const mihri = await User.create({
-    firstName: 'mihri',
-    lastName: 'mihri',
+    name: 'mihri',
+    // lastName: 'mihri',
     email: 'mihri@mihri.com',
   })
   await mihri.setPassword('test')
   await mihri.save()
 
   const armagan = await User.create({
-    firstName: 'armagan',
-    lastName: 'armagan',
+    name: 'armagan',
+    // lastName: 'armagan',
     email: 'armagan@armagan.com',
   })
   await armagan.setPassword('test')
   await armagan.save()
 
   const steve = await User.create({
-    firstName: 'steve',
-    lastName: 'steve',
+    name: 'steve',
+    // lastName: 'steve',
     email: 'steve@steve.com',
   })
   steve.bio = 'An amazing fashionista with an eye for detail'
@@ -127,7 +127,9 @@ router.get('/:userId', async (req, res) => {
 
 router.get('/:userId/json', async (req, res) => {
   const user = await User.findById(req.params.userId)
-  res.send(user)
+
+  if (user) res.send(user)
+  else res.sendStatus(404)
 })
 
 module.exports = router

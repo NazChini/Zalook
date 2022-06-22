@@ -11,10 +11,12 @@ router.get('/session', (req, res) => {
 })
 
 router.post('/', async (req, res, next) => {
-  const { firstName, lastName, email, password } = req.body
+  // const { name, lastName, email, password } = req.body
+  const { name, email, password } = req.body
 
   try {
-    const user = await User.register({ firstName, lastName, email }, password)
+    // const user = await User.register({ name, lastName, email }, password)
+    const user = await User.register({ name, email }, password)
     res.send(user)
   } catch (e) {
     next(e)
@@ -28,6 +30,7 @@ router.post('/session', passport.authenticate('local', { failWithError: true }),
 router.delete('/session', async (req, res, next) => {
   await req.logout()
 
+  //security measure to give user completely new session when he logs out to make him truly anonymous.
   req.session.regenerate(err => {
     if (err) return next(err)
 
