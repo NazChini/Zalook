@@ -22,18 +22,20 @@ export default {
 <template>
   <header>
     <div class="header-container-logo">
-      <div class="logo-wrapper">
-        <div class="logo">
-          <img src="../assets/images/zalook.png" alt="logo" />
+      <div class="logo-section">
+        <div class="logo-wrapper">
+          <div class="logo">
+            <img src="../assets/images/zalook.png" alt="logo" />
+          </div>
+          <h1>zalook</h1>
         </div>
-        <h1>zalook</h1>
-      </div>
-      <div class="tagline">
-        <p>
-          <span class="tagline--1">Create Your Look </span>
-          <i class="fa-solid fa-circle fa-2xs"></i>
-          <span class="tagline--2"> Find Your Style</span>
-        </p>
+        <div class="tagline">
+          <p>
+            <span class="tagline--1">Create Your Look </span>
+            <i class="fa-solid fa-circle fa-2xs"></i>
+            <span class="tagline--2"> Find Your Style</span>
+          </p>
+        </div>
       </div>
       <div class="header-container-user">
         <p>Hi, {{ userName }}</p>
@@ -55,7 +57,16 @@ header {
 }
 
 .header-container-logo {
+  width: 100vw;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 0 3em;
+
+  @media only screen and (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 
   .logo-wrapper {
     margin-bottom: 0.2em;
@@ -94,20 +105,36 @@ header {
     }
   }
 
+  @media only screen and (min-width: 768px) {
+    .logo-wrapper {
+      justify-content: start;
+    }
+
+    .tagline {
+      margin-left: 6em;
+    }
+  }
+
   .header-container-user {
     display: flex;
+    gap: 1.5em;
     justify-content: space-between;
     align-items: center;
     margin-top: 1em;
 
     .logout {
       cursor: pointer;
-      padding-bottom: 0.5em;
+      padding: 0.5em 1.8em;
+      border: 1px solid #df6951;
+      border-radius: 1.8em;
+
+      font-size: 0.8rem;
     }
 
     .logout:hover,
     .logout:focus {
-      border-bottom: 0.5px solid grey;
+      background: #df6951;
+      color: #fff;
     }
   }
 }
