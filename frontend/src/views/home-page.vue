@@ -17,6 +17,8 @@ export default {
     }
   },
   async created() {
+    // this.look = await this.fetchLook(this.$store.state.look)
+    // console.log('look', this.look)
     this.user = await this.fetchUser(this.$store.state.user._id)
   },
   methods: {
