@@ -12,9 +12,6 @@ export default {
       height: document.documentElement.clientHeight,
     }
   },
-  created() {
-    console.log(this.width, this.height)
-  },
   mounted() {
     this.look = new fabric.Canvas('look', {
       isDrawingMode: false,
@@ -50,6 +47,13 @@ export default {
     toggleDrawingMode() {
       this.look.isDrawingMode = !this.look.isDrawingMode
     },
+    clearLook() {
+      this.look.getObjects().forEach(o => {
+        if (o !== this.look.backgroundImage) {
+          this.look.remove(o)
+        }
+      })
+    },
   },
 }
 </script>
@@ -57,15 +61,20 @@ export default {
 <template>
   <div id="look-wrapper" class="look-wrapper dots">
     <canvas id="look"></canvas>
-    <div @click="toggleDrawingMode" class="pencil">
-      <i class="fa-solid fa-pencil fa-xl"></i>
+    <div class="toolbar">
+      <div @click="toggleDrawingMode" class="pencil">
+        <i class="fa-solid fa-pencil fa-xl"></i>
+      </div>
+      <div @click="clearLook" class="deleteAll">
+        <i class="fa-solid fa-trash-can"></i>
+      </div>
     </div>
-    <div class="note">
+    <!-- <div class="note">
       <p>
         Use the pencil tool to draw on the canvas. Click on it again to deactivate drawing mode. Resize or rotate your
         drawing by selecting it.
       </p>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -81,35 +90,48 @@ export default {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='54' height='54' viewBox='0 0 100 100'%3E%3Crect x='0' y='0' width='13' height='13' fill-opacity='0.1' fill='%23000000'/%3E%3C/svg%3E");
   position: relative;
 
-  .pencil {
-    box-sizing: content-box;
+  .toolbar {
     position: fixed;
     bottom: 5%;
     left: 8%;
-    background: #df6951;
-    width: 3em;
-    height: 3em;
-    border: 0.3em solid #f7c4ba;
-    border-radius: 50%;
-    cursor: pointer;
 
-    i {
-      color: #fff;
-      padding: 0.9em 0;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    border: 1px solid red;
+
+    .pencil,
+    .deleteAll {
+      box-sizing: content-box;
+      background: #df6951;
+      width: 3em;
+      height: 3em;
+      border: 0.3em solid #f7c4ba;
+      border-radius: 50%;
+      cursor: pointer;
+
+      .fa-pencil,
+      .fa-trash-can {
+        color: #fff;
+        padding: 0.9em 0;
+      }
     }
-  }
 
-  .pencil:hover,
-  .pencil:focus {
-    background: #000;
-    border-color: lightgrey;
-  }
+    .pencil:hover,
+    .pencil:focus,
+    .deleteAll:hover,
+    .deleteAll:focus {
+      background: #000;
+      border-color: lightgrey;
+    }
 
-  .pencil:active {
-    transform: scale(0.9);
-    /* Scaling button to 0.98 to its original size */
-    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
-    /* Lowering the shadow */
+    .pencil:active,
+    .deleteAll:active {
+      transform: scale(0.9);
+      /* Scaling button to 0.98 to its original size */
+      box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+      /* Lowering the shadow */
+    }
   }
 
   .note {
