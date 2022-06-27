@@ -28,6 +28,7 @@ const mutations = {
 const store = new Vuex.Store({
   state: {
     user: null,
+    look: null,
     // currentLiveStream: null,
     // liveStreams: [],
     // liveStreamMessages: [],
@@ -55,6 +56,10 @@ const store = new Vuex.Store({
     async fetchUsers() {
       const usersRequest = await axios.get(`/api/users`)
       return usersRequest.data
+    },
+    async fetchLook(store, id) {
+      const lookRequest = await axios.get(`/api/looks/${id}/json`)
+      return lookRequest.data
     },
     async fetchSession({ commit }) {
       const user = await axios.get('/api/account/session')

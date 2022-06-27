@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const autopopulate = require("mongoose-autopopulate");
+const mongoose = require('mongoose')
+const autopopulate = require('mongoose-autopopulate')
 
 const productSchema = new mongoose.Schema({
   name: {
@@ -11,9 +11,7 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  x: Number,
-  y: Number,
-});
+})
 
 class Product {
   // constructor(name, category) {
@@ -22,14 +20,12 @@ class Product {
   //   this.x = -1;
   //   this.y = -1;
   // }
-
-  async setCoordinates(x, y) {
-    this.x = x;
-    this.y = y;
-    await this.save();
-  }
+  // async setCoordinates(x, y) {
+  //   this.x = x;
+  //   this.y = y;
+  //   await this.save();
 }
 
-productSchema.loadClass(Product);
-productSchema.plugin(autopopulate);
-module.exports = mongoose.model("Product", productSchema);
+productSchema.loadClass(Product)
+productSchema.plugin(autopopulate)
+module.exports = mongoose.model('Product', productSchema)
