@@ -15,7 +15,7 @@ ___The responsive 'Look' Canvas on a tablet screen, where users drag and drop th
 
 
 
-### Progress a.o. 1.6.2022 (D - 35)
+### Progress a.o. 1.6.2022
 
 Current working branch on GH: zalook-fe
 
